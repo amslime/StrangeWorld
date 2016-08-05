@@ -30,7 +30,7 @@
 		<key>GLASS_BOTTLE</key>
 		<dict>
 			<key>DISPLAY_NAME</key>
-			<string>折碎的玻璃酒瓶</string>
+			<string>碎的玻璃酒瓶</string>
 			<key>COMMENT</key>
 			<string>街头混混用来打架的破酒瓶</string>
 			<key>DMG_RANGE</key>

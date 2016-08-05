@@ -4,6 +4,8 @@
 <dict>
 	<key>PROPERTY</key>
 	<dict>
+		<key>MISC</key>
+		<dict/>
 		<key>GOLD</key>
 		<integer>100</integer>
 		<key>EQUIPPING</key>

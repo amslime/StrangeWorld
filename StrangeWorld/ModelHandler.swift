@@ -22,12 +22,15 @@ class ModelHandler {
     }
     
     var player: Player!
+    var itemData: ItemData!
     
     func resetFromView() {
         if (player == nil) {
-            // First call
             createCopyOfDataIfNeeded(fileNamed: "Player.plist")
             loadUser(fileNamed: "Player.plist")
+        }
+        if (itemData == nil) {
+            loadItem(fileNamed: "Items.plist")
         }
     }
     
@@ -60,5 +63,13 @@ class ModelHandler {
         let dict = NSDictionary(contentsOfFile: plistPath) as! Dictionary<String, AnyObject>
         player = Player()
         player.load(fromDictionary: dict)
+    }
+    
+    func loadItem(fileNamed name: String) {
+        let defauntFilePath = NSBundle.mainBundle().resourcePath as NSString!
+        let plistPath = defauntFilePath.stringByAppendingPathComponent(name) as String
+        let dict = NSDictionary(contentsOfFile: plistPath) as! Dictionary<String, AnyObject>
+        itemData = ItemData()
+        itemData.load(fromDictionary: dict)
     }
 }

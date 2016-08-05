@@ -111,6 +111,14 @@
 			name = Item;
 			sourceTree = "<group>";
 		};
+		815275421D54771600E79425 /* Town */ = {
+			isa = PBXGroup;
+			children = (
+				81DC42AF1D519B6A00DFE789 /* TownScene.swift */,
+			);
+			name = Town;
+			sourceTree = "<group>";
+		};
 		817885971D53716D00CB745A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,12 +132,13 @@
 		8178859A1D53726E00CB745A /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				815275421D54771600E79425 /* Town */,
 				8178859D1D53736F00CB745A /* Log */,
 				8178859C1D53735A00CB745A /* Player */,
-				81DC42AF1D519B6A00DFE789 /* TownScene.swift */,
 				815452DA1D52202500A4B2BB /* VisitableObject.swift */,
 				81DC42AD1D519B6A00DFE789 /* GameScene.sks */,
 				81DC42DF1D51B78E00DFE789 /* ViewItemHandler.swift */,
+				81DC42B11D519B6A00DFE789 /* GameViewController.swift */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -184,7 +193,6 @@
 				8178859A1D53726E00CB745A /* Scene */,
 				817885971D53716D00CB745A /* Model */,
 				81DC42AB1D519B6A00DFE789 /* AppDelegate.swift */,
-				81DC42B11D519B6A00DFE789 /* GameViewController.swift */,
 				81DC42B31D519B6A00DFE789 /* Main.storyboard */,
 				81DC42B61D519B6A00DFE789 /* Assets.xcassets */,
 				81DC42B81D519B6A00DFE789 /* LaunchScreen.storyboard */,

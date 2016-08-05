@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MISC</key>
+	<dict/>
+	<key>ARMOR</key>
+	<dict>
+		<key>RAG</key>
+		<dict>
+			<key>COMMENT</key>
+			<string>可以说是一块破布...</string>
+			<key>DISPLAY_NAME</key>
+			<string>破衣服</string>
+			<key>HP</key>
+			<integer>10</integer>
+		</dict>
+		<key>SHIRT</key>
+		<dict>
+			<key>COMMENT</key>
+			<string>普通的衣服，提供一定的防御作用</string>
+			<key>DISPLAY_NAME</key>
+			<string>一般的衣服</string>
+			<key>DEF</key>
+			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>WEAPON</key>
+	<dict>
+		<key>GLASS_BOTTLE</key>
+		<dict>
+			<key>DISPLAY_NAME</key>
+			<string>折碎的玻璃酒瓶</string>
+			<key>COMMENT</key>
+			<string>街头混混用来打架的破酒瓶</string>
+			<key>DMG_RANGE</key>
+			<integer>10</integer>
+			<key>DMG_MIN</key>
+			<integer>0</integer>
+		</dict>
+		<key>WOOLEN_SWORD</key>
+		<dict>
+			<key>DISPLAY_NAME</key>
+			<string>木剑</string>
+			<key>COMMENT</key>
+			<string>初学者用于练习的武器</string>
+			<key>DEF</key>
+			<integer>2</integer>
+			<key>DMG_MIN</key>
+			<integer>2</integer>
+			<key>DMG_RANGE</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>

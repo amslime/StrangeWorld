@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PROPERTY</key>
+	<dict>
+		<key>GOLD</key>
+		<integer>100</integer>
+		<key>EQUIPPING</key>
+		<dict>
+			<key>ARMOR</key>
+			<string>SHIRT</string>
+			<key>WEAPON</key>
+			<string>WOOLEN_SWORD</string>
+		</dict>
+		<key>ARMOR</key>
+		<dict>
+			<key>SHIRT</key>
+			<integer>1</integer>
+			<key>RAG</key>
+			<integer>1</integer>
+		</dict>
+		<key>WEAPON</key>
+		<dict>
+			<key>WOOLEN_SWORD</key>
+			<integer>1</integer>
+			<key>GLASS_BOTTLE</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>DEX</key>
+	<integer>8</integer>
+	<key>DEF</key>
+	<integer>4</integer>
+	<key>HP</key>
+	<integer>100</integer>
+	<key>STR</key>
+	<integer>10</integer>
+</dict>
+</plist>

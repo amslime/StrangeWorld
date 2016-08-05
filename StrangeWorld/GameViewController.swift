@@ -13,7 +13,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ModelHandler.Instance.resetFromView()
+        
         if let scene = TownScene(fileNamed:"GameScene") {
             // Configure the view.
             let skView = self.view as! SKView
@@ -29,7 +30,6 @@ class GameViewController: UIViewController {
             skView.presentScene(scene)
             ViewItemHandler.Instance.setTownScene(scene)
             ViewItemHandler.Instance.setViewController(self)
-            
         }
     }
 

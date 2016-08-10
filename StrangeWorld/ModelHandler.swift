@@ -23,6 +23,7 @@ class ModelHandler {
     
     var player: Player!
     var itemData: ItemData!
+    var townData: TownData!
     
     func resetFromView() {
         if (player == nil) {
@@ -31,6 +32,9 @@ class ModelHandler {
         }
         if (itemData == nil) {
             loadItem(fileNamed: "Items.plist")
+        }
+        if (townData == nil) {
+            loadTownData(fileNamed: "TownInfo.plist")
         }
     }
     
@@ -72,4 +76,14 @@ class ModelHandler {
         itemData = ItemData()
         itemData.load(fromDictionary: dict)
     }
+    
+    func loadTownData(fileNamed name: String) {
+        let defauntFilePath = NSBundle.mainBundle().resourcePath as NSString!
+        let plistPath = defauntFilePath.stringByAppendingPathComponent(name) as String
+        let dict = NSDictionary(contentsOfFile: plistPath)
+        townData = TownData()
+        townData.load(fromDictionary: dict!)
+        townData.setCurrentTown(townNamed: "Town00")
+    }
+
 }

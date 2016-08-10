@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -65,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="1795" y="-453"/>
         </scene>
-        <!--View Controller-->
+        <!--TAVERN-->
         <scene sceneID="g4E-HE-8Y9">
             <objects>
-                <viewController storyboardIdentifier="Tarven" id="sSi-9t-26E" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TAVERN" title="TAVERN" id="sSi-9t-26E" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QMe-MB-2qp"/>
                         <viewControllerLayoutGuide type="bottom" id="BgN-16-qei"/>
@@ -82,6 +83,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUX-KJ-WdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1795" y="306"/>
+        </scene>
+        <!--DUNGEON-->
+        <scene sceneID="sdN-XN-zTY">
+            <objects>
+                <viewController storyboardIdentifier="DUNGEON" title="DUNGEON" id="xqN-DX-3os" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z4A-kf-fAe"/>
+                        <viewControllerLayoutGuide type="bottom" id="h9o-3t-UJE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vpm-HP-2IM">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tUp-DV-M1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801" y="1074"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Weg-FG-SSQ">
+            <objects>
+                <viewController id="ZoC-Ko-Fml" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nja-XZ-33i"/>
+                        <viewControllerLayoutGuide type="bottom" id="iiS-8w-hlu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5yj-gI-E0Q">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BG0-oX-CA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1749" y="1908"/>
+        </scene>
+        <!--PLAZA-->
+        <scene sceneID="tfz-vW-dtj">
+            <objects>
+                <viewController storyboardIdentifier="PLAZA" title="PLAZA" id="hCs-Lf-cD9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="07f-PI-mDb"/>
+                        <viewControllerLayoutGuide type="bottom" id="hYj-Qn-bER"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iAI-Pr-0Tu">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nqy-Ph-XIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1729" y="2652"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5gG-UE-mp7">
@@ -101,10 +153,10 @@
             </objects>
             <point key="canvasLocation" x="1057" y="-453"/>
         </scene>
-        <!--Title-->
+        <!--MAINSCENE-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="StrangeWorld" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MAINSCENE" id="BV1-FR-VrT" customClass="GameViewController" customModule="StrangeWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8aa-yV-Osq"/>
                         <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
@@ -114,7 +166,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="tbb-Qe-XeZ">
+                    <navigationItem key="navigationItem" title="我的智障之路" id="tbb-Qe-XeZ">
                         <barButtonItem key="leftBarButtonItem" title="角色" id="sf8-Zz-llu">
                             <connections>
                                 <segue destination="cbd-kw-U2q" kind="show" id="1em-SF-8GR"/>
@@ -289,37 +341,37 @@
                                 <exclude reference="lWJ-0A-xGB"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="LsL-46-J19"/>
-                                <exclude reference="YVL-KV-QUU"/>
-                                <exclude reference="2cT-Re-sxi"/>
-                                <exclude reference="qIh-JE-k2t"/>
-                                <exclude reference="Slv-Ew-Rld"/>
-                                <exclude reference="v5L-v7-fHt"/>
-                                <exclude reference="r2S-oF-6SI"/>
-                                <exclude reference="vT8-Nr-uRf"/>
-                                <exclude reference="aSo-LQ-qf9"/>
-                                <exclude reference="rln-lG-BK3"/>
-                                <exclude reference="Gze-9c-Ycj"/>
-                                <exclude reference="eVf-et-j6V"/>
-                                <exclude reference="BTI-ge-h1U"/>
-                                <exclude reference="QtR-4t-7sX"/>
                                 <exclude reference="9XZ-jS-7XT"/>
                                 <exclude reference="wVQ-IK-Jd2"/>
                                 <exclude reference="y1d-yP-9hj"/>
+                                <exclude reference="8q2-zn-WS0"/>
+                                <exclude reference="9zI-44-NKc"/>
+                                <exclude reference="2cT-Re-sxi"/>
+                                <exclude reference="qIh-JE-k2t"/>
+                                <exclude reference="Gze-9c-Ycj"/>
+                                <exclude reference="eVf-et-j6V"/>
+                                <exclude reference="Xjn-dO-yQM"/>
+                                <exclude reference="v9t-fQ-25U"/>
+                                <exclude reference="Slv-Ew-Rld"/>
+                                <exclude reference="v5L-v7-fHt"/>
+                                <exclude reference="7Uv-GC-AOJ"/>
+                                <exclude reference="EAS-eM-nOd"/>
+                                <exclude reference="hsy-QC-RbG"/>
+                                <exclude reference="r2S-oF-6SI"/>
+                                <exclude reference="vT8-Nr-uRf"/>
+                                <exclude reference="BTI-ge-h1U"/>
+                                <exclude reference="QtR-4t-7sX"/>
+                                <exclude reference="IJP-kY-dMl"/>
+                                <exclude reference="c4z-D5-Tj4"/>
+                                <exclude reference="vwL-dB-b7O"/>
+                                <exclude reference="aSo-LQ-qf9"/>
+                                <exclude reference="rln-lG-BK3"/>
                                 <exclude reference="4e8-uM-gmd"/>
                                 <exclude reference="Sm5-SD-yzz"/>
                                 <exclude reference="axm-gF-ymF"/>
                                 <exclude reference="xGB-WN-oXd"/>
-                                <exclude reference="Xjn-dO-yQM"/>
-                                <exclude reference="v9t-fQ-25U"/>
-                                <exclude reference="7Uv-GC-AOJ"/>
-                                <exclude reference="EAS-eM-nOd"/>
-                                <exclude reference="hsy-QC-RbG"/>
-                                <exclude reference="IJP-kY-dMl"/>
-                                <exclude reference="c4z-D5-Tj4"/>
-                                <exclude reference="vwL-dB-b7O"/>
-                                <exclude reference="8q2-zn-WS0"/>
-                                <exclude reference="9zI-44-NKc"/>
+                                <exclude reference="LsL-46-J19"/>
+                                <exclude reference="YVL-KV-QUU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -338,37 +390,37 @@
                                 <include reference="lWJ-0A-xGB"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="LsL-46-J19"/>
-                                <include reference="YVL-KV-QUU"/>
-                                <include reference="2cT-Re-sxi"/>
-                                <include reference="qIh-JE-k2t"/>
-                                <include reference="Slv-Ew-Rld"/>
-                                <include reference="v5L-v7-fHt"/>
-                                <include reference="r2S-oF-6SI"/>
-                                <include reference="vT8-Nr-uRf"/>
-                                <include reference="aSo-LQ-qf9"/>
-                                <include reference="rln-lG-BK3"/>
-                                <include reference="Gze-9c-Ycj"/>
-                                <include reference="eVf-et-j6V"/>
-                                <include reference="BTI-ge-h1U"/>
-                                <include reference="QtR-4t-7sX"/>
                                 <include reference="9XZ-jS-7XT"/>
                                 <include reference="wVQ-IK-Jd2"/>
                                 <include reference="y1d-yP-9hj"/>
+                                <include reference="8q2-zn-WS0"/>
+                                <include reference="9zI-44-NKc"/>
+                                <include reference="2cT-Re-sxi"/>
+                                <include reference="qIh-JE-k2t"/>
+                                <include reference="Gze-9c-Ycj"/>
+                                <include reference="eVf-et-j6V"/>
+                                <include reference="Xjn-dO-yQM"/>
+                                <include reference="v9t-fQ-25U"/>
+                                <include reference="Slv-Ew-Rld"/>
+                                <include reference="v5L-v7-fHt"/>
+                                <include reference="7Uv-GC-AOJ"/>
+                                <include reference="EAS-eM-nOd"/>
+                                <include reference="hsy-QC-RbG"/>
+                                <include reference="r2S-oF-6SI"/>
+                                <include reference="vT8-Nr-uRf"/>
+                                <include reference="BTI-ge-h1U"/>
+                                <include reference="QtR-4t-7sX"/>
+                                <include reference="IJP-kY-dMl"/>
+                                <include reference="c4z-D5-Tj4"/>
+                                <include reference="vwL-dB-b7O"/>
+                                <include reference="aSo-LQ-qf9"/>
+                                <include reference="rln-lG-BK3"/>
                                 <include reference="4e8-uM-gmd"/>
                                 <include reference="Sm5-SD-yzz"/>
                                 <include reference="axm-gF-ymF"/>
                                 <include reference="xGB-WN-oXd"/>
-                                <include reference="Xjn-dO-yQM"/>
-                                <include reference="v9t-fQ-25U"/>
-                                <include reference="7Uv-GC-AOJ"/>
-                                <include reference="EAS-eM-nOd"/>
-                                <include reference="hsy-QC-RbG"/>
-                                <include reference="IJP-kY-dMl"/>
-                                <include reference="c4z-D5-Tj4"/>
-                                <include reference="vwL-dB-b7O"/>
-                                <include reference="8q2-zn-WS0"/>
-                                <include reference="9zI-44-NKc"/>
+                                <include reference="LsL-46-J19"/>
+                                <include reference="YVL-KV-QUU"/>
                             </mask>
                         </variation>
                     </view>
@@ -386,10 +438,45 @@
             </objects>
             <point key="canvasLocation" x="1057" y="1065"/>
         </scene>
+        <!--OUT-->
+        <scene sceneID="ONy-iG-sxM">
+            <objects>
+                <viewController storyboardIdentifier="OUT" title="OUT" id="Ift-x2-3R9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HP9-tQ-xgb"/>
+                        <viewControllerLayoutGuide type="bottom" id="ARa-Jb-yUv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f24-Ri-Q6R">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="osM-Dq-pl2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="381" y="1968"/>
+        </scene>
+        <!--SHOP-->
+        <scene sceneID="KkI-7x-rc3">
+            <objects>
+                <viewController storyboardIdentifier="SHOP" title="SHOP" id="9Zs-6v-E5j" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dDl-DE-4gl"/>
+                        <viewControllerLayoutGuide type="bottom" id="opN-3y-tsZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CX0-qG-2ov">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sSY-yS-hRE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1029" y="1968"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sgp-oJ-OOm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xqd-2Q-Uou" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YLK-Rs-GVB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

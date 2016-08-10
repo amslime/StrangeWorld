@@ -26,6 +26,7 @@ class ViewItemHandler {
     var townScene : TownScene!
     var gameViewController : GameViewController!
     var groundSceneMap : Dictionary<String, UIViewController>!
+    var onChooseItem: String!
     
     func setTownScene(townScene : TownScene) {
         self.townScene = townScene

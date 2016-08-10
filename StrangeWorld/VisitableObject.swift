@@ -7,30 +7,49 @@
 //
 
 import SpriteKit
+import Foundation
 
 class VisitableObject: SKSpriteNode {
-    var highlighted : Bool!
     var zoonIn : SKAction!
     var zoonOut : SKAction!
+    var scaleFac : CGFloat!
     
     convenience init(imageNamed imageName: String, objectName : String) {
         self.init(imageNamed: imageName)
         self.name = objectName
         self.userInteractionEnabled = true
-        self.highlighted = false
-        zoonIn = SKAction.scaleTo(1.05, duration: 0.5)
-        zoonOut = SKAction.scaleTo(1.00, duration: 0.5)
+        scaleFac = 1.8
+        self.setScale(scaleFac)
+        zoonIn = SKAction.scaleTo(scaleFac * 1.5, duration: 0.5)
+        zoonOut = SKAction.scaleTo(scaleFac, duration: 0.5)
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if (self.highlighted == false) {
-            self.highlighted = true
+        let townData = ModelHandler.Instance.townData
+        let titleLabel = ViewItemHandler.Instance.townScene.titleText
+        let commentLabel = ViewItemHandler.Instance.townScene.commentText
+        if (ViewItemHandler.Instance.onChooseItem == nil || ViewItemHandler.Instance.onChooseItem != self.name) {
+            if (ViewItemHandler.Instance.onChooseItem != nil) {
+                let visitableObj = ViewItemHandler.Instance.townScene.childNodeWithName(ViewItemHandler.Instance.onChooseItem) as! VisitableObject
+                visitableObj.endShrinkAction()
+            }
+            ViewItemHandler.Instance.onChooseItem = self.name
+            let facObj = townData.getFacilityByName(facilityName: self.name!)
+            let title = facObj["NAME"] as! String
+            let comment = facObj["COMMENT"] as! String
+            titleLabel.text = title
+            commentLabel.text = comment
             self.runAction(SKAction.repeatActionForever(SKAction.sequence([zoonIn, zoonOut])))
         } else {
-            self.highlighted = false
-            self.removeAllActions()
-            self.setScale(1.0)
+            endShrinkAction()
+            titleLabel.text = townData.getTownName()
+            commentLabel.text = townData.getTownComment()
             ViewItemHandler.Instance.switchGroundScene(sceneNamed: self.name!)
         }
+    }
+    
+    func endShrinkAction() {
+        self.removeAllActions()
+        self.setScale(scaleFac)
     }
 }

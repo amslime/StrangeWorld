@@ -9,6 +9,9 @@
 import UIKit
 
 class PlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    @IBOutlet weak var sellButton: UIButton!
+    @IBOutlet weak var useButton: UIButton!
     @IBOutlet weak var strLabel: UILabel!
     @IBOutlet weak var dexLabel: UILabel!
     @IBOutlet weak var commetLabel: UILabel!
@@ -17,12 +20,16 @@ class PlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var dmgLabel: UILabel!
     @IBOutlet weak var itemPicker: UIPickerView!
     
-    var itemTypeDict: NSDictionary!
-    var itemGroupDict: NSDictionary!
-    var itemType: Array = ["武器", "护甲", "杂项"]
-    var itemTypeId: Array = ["WEAPON", "ARMOR", "MISC"]
-    var itemInGroupArray: Array<String>!
-    var selectedTypeId: String!
+    private var itemTypeDict: NSDictionary!
+    private var itemGroupDict: NSDictionary!
+    private var itemType: Array = ["武器", "护甲", "杂项"]
+    private var itemTypeId: Array = ["WEAPON", "ARMOR", "MISC"]
+    private var itemInGroupArray: Array<String>!
+    private var selectedTypeId: String!
+    private var onChooseItem: NSDictionary!
+    private var onChooseId: String!
+    private var equippingDict: NSDictionary!
+    private var player: Player!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +37,19 @@ class PlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.itemPicker.delegate = self
         
         // TODO, wait for update
-        let player = ModelHandler.Instance.player
+        player = ModelHandler.Instance.player as Player
+        equippingDict = (player.dict["PROPERTY"] as! NSMutableDictionary)["EQUIPPING"] as! NSMutableDictionary
+        
+        updatePlayerStats()
+        
+        itemTypeDict = player.dict["PROPERTY"] as! NSMutableDictionary
+        itemGroupDict = itemTypeDict[itemTypeId[0]] as! NSMutableDictionary
+        itemInGroupArray = itemGroupDict.allKeys as! Array<String>
+        selectedTypeId = itemTypeId[0]
+        onChooseItem = updateInfo(didSelectRow: self.itemPicker.selectedRowInComponent(1))
+    }
+    
+    func updatePlayerStats() {
         strLabel.textColor = UIColor.redColor()
         strLabel.text = String(player.str)
         dexLabel.textColor = UIColor.blueColor()
@@ -39,13 +58,9 @@ class PlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         defLabel.text = String(player.def)
         hpLabel.textColor = UIColor.redColor()
         hpLabel.text = String(player.mhp)
-        dmgLabel.text = "5 - 10"
-        
-        itemTypeDict = ModelHandler.Instance.player.dict["PROPERTY"] as! NSDictionary
-        itemGroupDict = itemTypeDict[itemTypeId[0]] as! NSDictionary
-        itemInGroupArray = itemGroupDict.allKeys as! Array<String>
-        selectedTypeId = itemTypeId[0]
-        updateCommentLabel(didSelectRow: self.itemPicker.selectedRowInComponent(1))
+        let minDmg = player.dmgMin
+        let maxDmg = minDmg + player.dmgRange
+        dmgLabel.text = String(minDmg) + "~" + String(maxDmg)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -84,21 +99,58 @@ class PlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         } else if (component == 1) {
 
         }
-        updateCommentLabel(didSelectRow: itemPicker.selectedRowInComponent(1))
+        onChooseItem = updateInfo(didSelectRow: itemPicker.selectedRowInComponent(1))
     }
     
-    func updateCommentLabel(didSelectRow row: Int) {
+    func updateInfo(didSelectRow row: Int) -> NSDictionary? {
         if (itemInGroupArray.count <= 0) {
+            NSLog("0000")
             commetLabel.text = ""
-            return
+            self.useButton.setTitle("", forState: .Normal)
+            self.sellButton.setTitle("", forState: .Normal)
+            return nil
         }
-        let id = itemInGroupArray[row]
+        onChooseId = itemInGroupArray[row]
         let typeDict = ModelHandler.Instance.itemData.allDict[selectedTypeId] as! NSDictionary
-        let item = typeDict[id] as! NSDictionary
+        let item = typeDict[onChooseId] as! NSDictionary
         var comment = item["COMMENT"] as? String
         if (comment == nil) {
             comment = "未知装备"
         }
+        
+        if (selectedTypeId != "MISC") {
+            let eqid = self.equippingDict[selectedTypeId] as? String
+            if (eqid == nil || eqid != onChooseId) {
+                self.useButton.setTitle(GlobalName.EQUIP, forState: .Normal)
+            } else {
+                self.useButton.setTitle(GlobalName.UNEQUIP, forState: .Normal)
+            }
+        } else {
+            self.useButton.setTitle(GlobalName.USE, forState: .Normal)
+        }
+        
+        self.sellButton.setTitle(GlobalName.SELL, forState: .Normal)
         commetLabel.text = comment
+        return item
+    }
+    
+    @IBAction func useButtonClicked(sender: AnyObject) {
+        if (useButton.currentTitle == GlobalName.EQUIP) {
+            NSLog("equipping")
+            equippingDict.setValue(onChooseId, forKey: selectedTypeId)
+            player.load()
+            updatePlayerStats()
+            useButton.setTitle(GlobalName.UNEQUIP, forState: .Normal)
+        }
+        else if (useButton.currentTitle == GlobalName.UNEQUIP) {
+            NSLog("unEquipping")
+            equippingDict.setValue(GlobalName.NONE, forKey: selectedTypeId)
+            player.load()
+            updatePlayerStats()
+            useButton.setTitle(GlobalName.EQUIP, forState: .Normal)
+        }
+        else if (useButton.currentTitle == GlobalName.USE) {
+            NSLog("use")
+        }
     }
 }

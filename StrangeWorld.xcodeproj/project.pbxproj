@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8119C6081D62D8520084775A /* GlobalName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119C6071D62D8520084775A /* GlobalName.swift */; };
 		813D5EFB1D59CCEE00566034 /* Town00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 813D5EFA1D59CCEE00566034 /* Town00.jpg */; };
 		815275381D537EC800E79425 /* Player.plist in Resources */ = {isa = PBXBuildFile; fileRef = 815275371D537EC800E79425 /* Player.plist */; };
 		8152753A1D5381AC00E79425 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815275391D5381AC00E79425 /* Player.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8119C6071D62D8520084775A /* GlobalName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalName.swift; sourceTree = "<group>"; };
 		813D5EFA1D59CCEE00566034 /* Town00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Town00.jpg; sourceTree = "<group>"; };
 		815275371D537EC800E79425 /* Player.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Player.plist; sourceTree = "<group>"; };
 		815275391D5381AC00E79425 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				8152753D1D546F0E00E79425 /* Item */,
 				8178859B1D5372F100CB745A /* Player */,
 				817885981D5371F000CB745A /* ModelHandler.swift */,
+				8119C6071D62D8520084775A /* GlobalName.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			files = (
 				8152753F1D546F4700E79425 /* ItemData.swift in Sources */,
 				81B176621D5B395400E0AEAC /* TownData.swift in Sources */,
+				8119C6081D62D8520084775A /* GlobalName.swift in Sources */,
 				817885991D5371F000CB745A /* ModelHandler.swift in Sources */,
 				81DC42E01D51B78E00DFE789 /* ViewItemHandler.swift in Sources */,
 				81DC42B01D519B6A00DFE789 /* TownScene.swift in Sources */,

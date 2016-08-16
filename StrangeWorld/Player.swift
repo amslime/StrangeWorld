@@ -9,16 +9,61 @@
 import Foundation
 
 class Player {
-    var str, dex, def, mhp: Int!
-    var dict: Dictionary<String, AnyObject?>!
+    var baseStr, baseDex, baseDef, baseMhp: Int!
+    var str, dex, def, mhp, dmgMin, dmgRange: Int!
+    var dict: NSMutableDictionary!
     
-    func load(fromDictionary dict : Dictionary<String, AnyObject?>) {
+    func load(fromDictionary dict : NSMutableDictionary) {
         self.dict = dict
-        self.str = dict["STR"] as! Int
-        self.dex = dict["DEX"] as! Int
-        self.def = dict["DEF"] as! Int
-        self.mhp = dict["HP"] as! Int
-        NSLog("mhp%d", self.mhp)
+        load()
     }
     
+    func load() {
+        self.baseStr = dict["STR"] as! Int
+        self.baseDex = dict["DEX"] as! Int
+        self.baseDef = dict["DEF"] as! Int
+        self.baseMhp = dict["HP"] as! Int
+        self.str = self.baseStr
+        self.dex = self.baseDex
+        self.def = self.baseDef
+        self.mhp = self.baseMhp
+        self.dmgMin = self.baseStr
+        self.dmgRange = self.baseStr
+        NSLog("mhp%d", self.mhp)
+        let eqdict = (dict["PROPERTY"] as! NSDictionary)["EQUIPPING"] as! NSDictionary
+        let itemDict = ModelHandler.Instance.itemData.allDict
+        for typeName: String in (eqdict.allKeys as! [String]) {
+            let typeItem = itemDict[typeName] as! NSDictionary
+            let itemID = eqdict[typeName] as? String
+            if (itemID != nil && itemID != GlobalName.NONE) {
+                let item = typeItem[itemID!] as! NSDictionary
+                addItemEffect(item)
+            }
+        }
+    }
+    
+    private func addItemEffect(item: NSDictionary) {
+        for effectName: String in (item.allKeys as! [String]) {
+            switch effectName {
+            case "HP":
+                self.mhp = self.mhp + (item[effectName] as! Int)
+                break
+            case "STR":
+                self.str = self.str + (item[effectName] as! Int)
+                break
+            case "DEX":
+                self.dex = self.dex + (item[effectName] as! Int)
+                break
+            case "DEF":
+                self.def = self.def + (item[effectName] as! Int)
+                break
+            case "DMG_MIN":
+                self.dmgMin = self.dmgMin + (item[effectName] as! Int)
+            case "DMG_RANGE":
+                self.dmgRange = self.dmgRange + (item[effectName] as! Int)
+            default:
+                break
+            }
+        }
+    }
 }

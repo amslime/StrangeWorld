@@ -18,7 +18,7 @@
 		<key>TAVERN</key>
 		<dict>
 			<key>Y</key>
-			<real>0.62</real>
+			<real>0.6</real>
 			<key>X</key>
 			<real>0.17</real>
 			<key>COMMENT</key>
@@ -29,7 +29,7 @@
 		<key>DUNGEON</key>
 		<dict>
 			<key>Y</key>
-			<real>0.62</real>
+			<real>0.6</real>
 			<key>X</key>
 			<real>0.87</real>
 			<key>COMMENT</key>

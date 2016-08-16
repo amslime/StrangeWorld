@@ -26,15 +26,15 @@ class ModelHandler {
     var townData: TownData!
     
     func resetFromView() {
-        if (player == nil) {
-            createCopyOfDataIfNeeded(fileNamed: "Player.plist")
-            loadUser(fileNamed: "Player.plist")
-        }
         if (itemData == nil) {
             loadItem(fileNamed: "Items.plist")
         }
         if (townData == nil) {
             loadTownData(fileNamed: "TownInfo.plist")
+        }
+        if (player == nil) {
+            createCopyOfDataIfNeeded(fileNamed: "Player.plist")
+            loadUser(fileNamed: "Player.plist")
         }
     }
     
@@ -64,9 +64,9 @@ class ModelHandler {
     
     func loadUser(fileNamed name: String) {
         let plistPath = applicationDocumentsDirectoryFile(fileNamed: name)
-        let dict = NSDictionary(contentsOfFile: plistPath) as! Dictionary<String, AnyObject>
+        let dict = NSMutableDictionary(contentsOfFile: plistPath)
         player = Player()
-        player.load(fromDictionary: dict)
+        player.load(fromDictionary: dict!)
     }
     
     func loadItem(fileNamed name: String) {

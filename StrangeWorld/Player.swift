@@ -14,7 +14,9 @@ class Player: Creature {
     
     func load(fromDictionary dict : NSMutableDictionary) {
         self.dict = dict
+        self.hp = 1
         load()
+        refresh()
     }
     
     func load() {
@@ -40,6 +42,13 @@ class Player: Creature {
                 addItemEffect(item)
             }
         }
+        if (self.hp > self.mhp) {
+            self.hp = self.mhp
+        }
+    }
+    
+    func refresh() {
+        self.hp = self.mhp
     }
     
     private func addItemEffect(item: NSDictionary) {

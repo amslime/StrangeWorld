@@ -10,13 +10,15 @@ import Foundation
 import SpriteKit
 
 class Battler: SKSpriteNode {
-    var scaleFac : CGFloat!
+    private var scaleFac : CGFloat!
+    private var attackRate : Int!
+    private var hpRecoverRate : Float!
+    
     var creatureStats: Creature!
     var isPlayer : Bool!
     var delegate : BattleMainScene?
-    var attackRate : Int!
-    var hpRecoverRate : Float!
     var turns : Int!
+    var die : Bool!
     
     convenience init(stats: Creature, isPlayer : Bool) {
         self.init(imageNamed: stats.battleImg)
@@ -26,7 +28,7 @@ class Battler: SKSpriteNode {
         scaleFac = 1.0
         self.setScale(scaleFac)
         self.zPosition = 30
-        
+        self.die = false
         self.attackRate = updateAttackRate()
         self.hpRecoverRate = updateHpRecoverRate()
         self.turns = self.attackRate
@@ -38,6 +40,14 @@ class Battler: SKSpriteNode {
     
     func updateHpRecoverRate() -> Float {
         return 0.03 + Float(creatureStats.str) * 0.002
+    }
+    
+    func goDie() {
+        self.runAction(SKAction.rotateByAngle(-100, duration: 2))
+        self.runAction(SKAction.scaleTo(0, duration: 2), completion : {
+            self.removeFromParent()
+        })
+        self.die = true
     }
     
     func stab(distance dist: CGFloat) {

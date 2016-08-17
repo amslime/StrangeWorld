@@ -31,12 +31,12 @@
 		</dict>
 	</dict>
 	<key>DEX</key>
-	<integer>8</integer>
+	<integer>6</integer>
 	<key>DEF</key>
-	<integer>4</integer>
+	<integer>3</integer>
 	<key>HP</key>
-	<integer>100</integer>
+	<integer>80</integer>
 	<key>STR</key>
-	<integer>10</integer>
+	<integer>5</integer>
 </dict>
 </plist>

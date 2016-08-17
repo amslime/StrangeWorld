@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>RAT</key>
+	<dict>
+		<key>IMG</key>
+		<string>rat.png</string>
+		<key>DMG_RANGE</key>
+		<integer>5</integer>
+		<key>DMG_MIN</key>
+		<integer>5</integer>
+		<key>DEF</key>
+		<integer>1</integer>
+		<key>DEX</key>
+		<integer>15</integer>
+		<key>STR</key>
+		<integer>3</integer>
+		<key>HP</key>
+		<integer>45</integer>
+	</dict>
+</dict>
+</plist>

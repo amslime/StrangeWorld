@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		8119C6081D62D8520084775A /* GlobalName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119C6071D62D8520084775A /* GlobalName.swift */; };
+		8119C60A1D62F1B00084775A /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119C6091D62F1B00084775A /* Creature.swift */; };
+		8119C60E1D62F3070084775A /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 8119C60C1D62F3070084775A /* player.png */; };
+		8119C60F1D62F3070084775A /* rat.png in Resources */ = {isa = PBXBuildFile; fileRef = 8119C60D1D62F3070084775A /* rat.png */; };
+		8119C6111D62F34B0084775A /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119C6101D62F34B0084775A /* Enemy.swift */; };
+		8119C6131D62F3BE0084775A /* Enemies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8119C6121D62F3BE0084775A /* Enemies.plist */; };
+		8119C6151D6303C10084775A /* BattleSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119C6141D6303C10084775A /* BattleSceneViewController.swift */; };
+		8119C6171D6304890084775A /* BattleMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119C6161D6304890084775A /* BattleMainScene.swift */; };
+		8119C6191D63137C0084775A /* Battler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119C6181D63137C0084775A /* Battler.swift */; };
 		813D5EFB1D59CCEE00566034 /* Town00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 813D5EFA1D59CCEE00566034 /* Town00.jpg */; };
 		815275381D537EC800E79425 /* Player.plist in Resources */ = {isa = PBXBuildFile; fileRef = 815275371D537EC800E79425 /* Player.plist */; };
 		8152753A1D5381AC00E79425 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815275391D5381AC00E79425 /* Player.swift */; };
@@ -19,6 +27,7 @@
 		81B1765E1D5B181B00E0AEAC /* in.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B1765D1D5B181B00E0AEAC /* in.png */; };
 		81B176601D5B301000E0AEAC /* TownInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81B1765F1D5B301000E0AEAC /* TownInfo.plist */; };
 		81B176621D5B395400E0AEAC /* TownData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B176611D5B395400E0AEAC /* TownData.swift */; };
+		81DB25AD1D644E470048370F /* HealthBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DB25AC1D644E470048370F /* HealthBar.swift */; };
 		81DC42AC1D519B6A00DFE789 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC42AB1D519B6A00DFE789 /* AppDelegate.swift */; };
 		81DC42AE1D519B6A00DFE789 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 81DC42AD1D519B6A00DFE789 /* GameScene.sks */; };
 		81DC42B01D519B6A00DFE789 /* TownScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC42AF1D519B6A00DFE789 /* TownScene.swift */; };
@@ -50,6 +59,14 @@
 
 /* Begin PBXFileReference section */
 		8119C6071D62D8520084775A /* GlobalName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalName.swift; sourceTree = "<group>"; };
+		8119C6091D62F1B00084775A /* Creature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
+		8119C60C1D62F3070084775A /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
+		8119C60D1D62F3070084775A /* rat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rat.png; sourceTree = "<group>"; };
+		8119C6101D62F34B0084775A /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		8119C6121D62F3BE0084775A /* Enemies.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Enemies.plist; sourceTree = "<group>"; };
+		8119C6141D6303C10084775A /* BattleSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleSceneViewController.swift; sourceTree = "<group>"; };
+		8119C6161D6304890084775A /* BattleMainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleMainScene.swift; sourceTree = "<group>"; };
+		8119C6181D63137C0084775A /* Battler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Battler.swift; sourceTree = "<group>"; };
 		813D5EFA1D59CCEE00566034 /* Town00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Town00.jpg; sourceTree = "<group>"; };
 		815275371D537EC800E79425 /* Player.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Player.plist; sourceTree = "<group>"; };
 		815275391D5381AC00E79425 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -61,6 +78,7 @@
 		81B1765D1D5B181B00E0AEAC /* in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = in.png; sourceTree = "<group>"; };
 		81B1765F1D5B301000E0AEAC /* TownInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TownInfo.plist; sourceTree = "<group>"; };
 		81B176611D5B395400E0AEAC /* TownData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TownData.swift; sourceTree = "<group>"; };
+		81DB25AC1D644E470048370F /* HealthBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthBar.swift; sourceTree = "<group>"; };
 		81DC42A81D519B6900DFE789 /* StrangeWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StrangeWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81DC42AB1D519B6A00DFE789 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81DC42AD1D519B6A00DFE789 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -104,9 +122,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8119C60B1D62F2E00084775A /* Creatures */ = {
+			isa = PBXGroup;
+			children = (
+				8119C60C1D62F3070084775A /* player.png */,
+				8119C60D1D62F3070084775A /* rat.png */,
+			);
+			name = Creatures;
+			sourceTree = "<group>";
+		};
+		8119C61A1D6314EB0084775A /* Battle */ = {
+			isa = PBXGroup;
+			children = (
+				8119C6181D63137C0084775A /* Battler.swift */,
+				81DB25AC1D644E470048370F /* HealthBar.swift */,
+			);
+			name = Battle;
+			sourceTree = "<group>";
+		};
 		8136119E1D5B116900BE3FDE /* ItemImgs */ = {
 			isa = PBXGroup;
 			children = (
+				8119C60B1D62F2E00084775A /* Creatures */,
 			);
 			name = ItemImgs;
 			sourceTree = "<group>";
@@ -128,6 +165,7 @@
 				815275371D537EC800E79425 /* Player.plist */,
 				8152753B1D54572A00E79425 /* Items.plist */,
 				81B1765F1D5B301000E0AEAC /* TownInfo.plist */,
+				8119C6121D62F3BE0084775A /* Enemies.plist */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -153,7 +191,7 @@
 			children = (
 				81B176631D5B395C00E0AEAC /* Town */,
 				8152753D1D546F0E00E79425 /* Item */,
-				8178859B1D5372F100CB745A /* Player */,
+				8178859B1D5372F100CB745A /* Creature */,
 				817885981D5371F000CB745A /* ModelHandler.swift */,
 				8119C6071D62D8520084775A /* GlobalName.swift */,
 			);
@@ -163,6 +201,7 @@
 		8178859A1D53726E00CB745A /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				8119C61A1D6314EB0084775A /* Battle */,
 				815275421D54771600E79425 /* Town */,
 				8178859D1D53736F00CB745A /* Log */,
 				8178859C1D53735A00CB745A /* Player */,
@@ -170,16 +209,20 @@
 				81DC42AD1D519B6A00DFE789 /* GameScene.sks */,
 				81DC42DF1D51B78E00DFE789 /* ViewItemHandler.swift */,
 				81DC42B11D519B6A00DFE789 /* GameViewController.swift */,
+				8119C6141D6303C10084775A /* BattleSceneViewController.swift */,
+				8119C6161D6304890084775A /* BattleMainScene.swift */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
 		};
-		8178859B1D5372F100CB745A /* Player */ = {
+		8178859B1D5372F100CB745A /* Creature */ = {
 			isa = PBXGroup;
 			children = (
 				815275391D5381AC00E79425 /* Player.swift */,
+				8119C6091D62F1B00084775A /* Creature.swift */,
+				8119C6101D62F34B0084775A /* Enemy.swift */,
 			);
-			name = Player;
+			name = Creature;
 			sourceTree = "<group>";
 		};
 		8178859C1D53735A00CB745A /* Player */ = {
@@ -365,10 +408,13 @@
 				81B1765E1D5B181B00E0AEAC /* in.png in Resources */,
 				81DC42AE1D519B6A00DFE789 /* GameScene.sks in Resources */,
 				8152753C1D54572A00E79425 /* Items.plist in Resources */,
+				8119C6131D62F3BE0084775A /* Enemies.plist in Resources */,
 				81DC42BA1D519B6A00DFE789 /* LaunchScreen.storyboard in Resources */,
 				813D5EFB1D59CCEE00566034 /* Town00.jpg in Resources */,
 				81B176601D5B301000E0AEAC /* TownInfo.plist in Resources */,
+				8119C60E1D62F3070084775A /* player.png in Resources */,
 				81DC42B71D519B6A00DFE789 /* Assets.xcassets in Resources */,
+				8119C60F1D62F3070084775A /* rat.png in Resources */,
 				81DC42B51D519B6A00DFE789 /* Main.storyboard in Resources */,
 				815275381D537EC800E79425 /* Player.plist in Resources */,
 			);
@@ -397,12 +443,18 @@
 			files = (
 				8152753F1D546F4700E79425 /* ItemData.swift in Sources */,
 				81B176621D5B395400E0AEAC /* TownData.swift in Sources */,
+				8119C6111D62F34B0084775A /* Enemy.swift in Sources */,
 				8119C6081D62D8520084775A /* GlobalName.swift in Sources */,
 				817885991D5371F000CB745A /* ModelHandler.swift in Sources */,
 				81DC42E01D51B78E00DFE789 /* ViewItemHandler.swift in Sources */,
+				81DB25AD1D644E470048370F /* HealthBar.swift in Sources */,
+				8119C6191D63137C0084775A /* Battler.swift in Sources */,
+				8119C6171D6304890084775A /* BattleMainScene.swift in Sources */,
 				81DC42B01D519B6A00DFE789 /* TownScene.swift in Sources */,
+				8119C6151D6303C10084775A /* BattleSceneViewController.swift in Sources */,
 				8178859F1D53742400CB745A /* PlayerViewController.swift in Sources */,
 				8152753A1D5381AC00E79425 /* Player.swift in Sources */,
+				8119C60A1D62F1B00084775A /* Creature.swift in Sources */,
 				81DC42B21D519B6A00DFE789 /* GameViewController.swift in Sources */,
 				81DC42AC1D519B6A00DFE789 /* AppDelegate.swift in Sources */,
 				815452DB1D52202500A4B2BB /* VisitableObject.swift in Sources */,

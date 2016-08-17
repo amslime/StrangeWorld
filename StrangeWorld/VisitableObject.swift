@@ -18,7 +18,7 @@ class VisitableObject: SKSpriteNode {
         self.init(imageNamed: imageName)
         self.name = objectName
         self.userInteractionEnabled = true
-        scaleFac = 2.2
+        scaleFac = 2.5
         self.setScale(scaleFac)
         zoonIn = SKAction.scaleTo(scaleFac * 1.5, duration: 0.5)
         zoonOut = SKAction.scaleTo(scaleFac, duration: 0.5)

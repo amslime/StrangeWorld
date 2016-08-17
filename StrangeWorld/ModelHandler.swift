@@ -22,6 +22,7 @@ class ModelHandler {
     }
     
     var player: Player!
+    var enemyData: NSDictionary!
     var itemData: ItemData!
     var townData: TownData!
     
@@ -35,6 +36,9 @@ class ModelHandler {
         if (player == nil) {
             createCopyOfDataIfNeeded(fileNamed: "Player.plist")
             loadUser(fileNamed: "Player.plist")
+        }
+        if (enemyData == nil) {
+            loadEnemies(fileNamed: "Enemies.plist")
         }
     }
     
@@ -84,6 +88,12 @@ class ModelHandler {
         townData = TownData()
         townData.load(fromDictionary: dict!)
         townData.setCurrentTown(townNamed: "Town00")
+    }
+    
+    func loadEnemies(fileNamed name: String) {
+        let defauntFilePath = NSBundle.mainBundle().resourcePath as NSString!
+        let plistPath = defauntFilePath.stringByAppendingPathComponent(name) as String
+        self.enemyData = NSDictionary(contentsOfFile: plistPath) as NSDictionary!
     }
 
 }

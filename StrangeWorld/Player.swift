@@ -8,9 +8,8 @@
 
 import Foundation
 
-class Player {
+class Player: Creature {
     var baseStr, baseDex, baseDef, baseMhp: Int!
-    var str, dex, def, mhp, dmgMin, dmgRange: Int!
     var dict: NSMutableDictionary!
     
     func load(fromDictionary dict : NSMutableDictionary) {
@@ -19,6 +18,7 @@ class Player {
     }
     
     func load() {
+        battleImg = "player.png"
         self.baseStr = dict["STR"] as! Int
         self.baseDex = dict["DEX"] as! Int
         self.baseDef = dict["DEF"] as! Int
@@ -45,24 +45,26 @@ class Player {
     private func addItemEffect(item: NSDictionary) {
         for effectName: String in (item.allKeys as! [String]) {
             switch effectName {
-            case "HP":
-                self.mhp = self.mhp + (item[effectName] as! Int)
-                break
-            case "STR":
-                self.str = self.str + (item[effectName] as! Int)
-                break
-            case "DEX":
-                self.dex = self.dex + (item[effectName] as! Int)
-                break
-            case "DEF":
-                self.def = self.def + (item[effectName] as! Int)
-                break
-            case "DMG_MIN":
-                self.dmgMin = self.dmgMin + (item[effectName] as! Int)
-            case "DMG_RANGE":
-                self.dmgRange = self.dmgRange + (item[effectName] as! Int)
-            default:
-                break
+                case "HP":
+                    self.mhp = self.mhp + (item[effectName] as! Int)
+                    break
+                case "STR":
+                    self.str = self.str + (item[effectName] as! Int)
+                    break
+                case "DEX":
+                    self.dex = self.dex + (item[effectName] as! Int)
+                    break
+                case "DEF":
+                    self.def = self.def + (item[effectName] as! Int)
+                    break
+                case "DMG_MIN":
+                    self.dmgMin = self.dmgMin + (item[effectName] as! Int)
+                    break
+                case "DMG_RANGE":
+                    self.dmgRange = self.dmgRange + (item[effectName] as! Int)
+                    break
+                default:
+                    break
             }
         }
     }

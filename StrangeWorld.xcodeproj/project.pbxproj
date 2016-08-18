@@ -16,6 +16,7 @@
 		8119C6151D6303C10084775A /* BattleSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119C6141D6303C10084775A /* BattleSceneViewController.swift */; };
 		8119C6171D6304890084775A /* BattleMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119C6161D6304890084775A /* BattleMainScene.swift */; };
 		8119C6191D63137C0084775A /* Battler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119C6181D63137C0084775A /* Battler.swift */; };
+		8134AA571D65685200676CCB /* BattleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8134AA561D65685200676CCB /* BattleButton.swift */; };
 		813D5EFB1D59CCEE00566034 /* Town00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 813D5EFA1D59CCEE00566034 /* Town00.jpg */; };
 		815275381D537EC800E79425 /* Player.plist in Resources */ = {isa = PBXBuildFile; fileRef = 815275371D537EC800E79425 /* Player.plist */; };
 		8152753A1D5381AC00E79425 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815275391D5381AC00E79425 /* Player.swift */; };
@@ -67,6 +68,7 @@
 		8119C6141D6303C10084775A /* BattleSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleSceneViewController.swift; sourceTree = "<group>"; };
 		8119C6161D6304890084775A /* BattleMainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleMainScene.swift; sourceTree = "<group>"; };
 		8119C6181D63137C0084775A /* Battler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Battler.swift; sourceTree = "<group>"; };
+		8134AA561D65685200676CCB /* BattleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleButton.swift; sourceTree = "<group>"; };
 		813D5EFA1D59CCEE00566034 /* Town00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Town00.jpg; sourceTree = "<group>"; };
 		815275371D537EC800E79425 /* Player.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Player.plist; sourceTree = "<group>"; };
 		815275391D5381AC00E79425 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				8119C6181D63137C0084775A /* Battler.swift */,
 				81DB25AC1D644E470048370F /* HealthBar.swift */,
+				8134AA561D65685200676CCB /* BattleButton.swift */,
 			);
 			name = Battle;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				817885991D5371F000CB745A /* ModelHandler.swift in Sources */,
 				81DC42E01D51B78E00DFE789 /* ViewItemHandler.swift in Sources */,
 				81DB25AD1D644E470048370F /* HealthBar.swift in Sources */,
+				8134AA571D65685200676CCB /* BattleButton.swift in Sources */,
 				8119C6191D63137C0084775A /* Battler.swift in Sources */,
 				8119C6171D6304890084775A /* BattleMainScene.swift in Sources */,
 				81DC42B01D519B6A00DFE789 /* TownScene.swift in Sources */,

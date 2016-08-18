@@ -16,7 +16,7 @@ class Battler: SKSpriteNode {
     
     var creatureStats: Creature!
     var isPlayer : Bool!
-    var delegate : BattleMainScene?
+    weak var delegate : BattleMainScene?
     var turns : Int!
     var die : Bool!
     
@@ -45,7 +45,7 @@ class Battler: SKSpriteNode {
     func goDie() {
         self.runAction(SKAction.rotateByAngle(-100, duration: 2))
         self.runAction(SKAction.scaleTo(0, duration: 2), completion : {
-            self.removeFromParent()
+            self.hidden = true
         })
         self.die = true
     }
@@ -68,4 +68,30 @@ class Battler: SKSpriteNode {
         )
     }
     
+    func retreat(distance dist: CGFloat, level lv: Int) -> Bool {
+        NSLog("Retreating")
+        turns = turns + attackRate
+        let orgX = self.position.x
+        var dstX: CGFloat!
+        if (isPlayer == true) {
+            dstX = orgX - dist
+        } else {
+            dstX = orgX + dist
+        }
+        var succ: Bool = false
+        let seed = Int(arc4random_uniform(UInt32(lv + creatureStats.dex)))
+        if (seed > lv) {
+            succ = true
+        }
+        self.runAction(SKAction.sequence([SKAction.moveToX(dstX, duration: 1), SKAction.runBlock{
+                if (succ == true) {
+                    self.hidden = true
+                    self.delegate?.retrectSucc()
+                }
+            },SKAction.moveToX(orgX, duration: 1.0)]), completion : {
+                self.delegate?.nextAction()
+            }
+        )
+        return succ
+    }
 }

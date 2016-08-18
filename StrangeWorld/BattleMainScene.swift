@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class BattleMainScene: SKScene {
+    private var isRetreating: Bool!
+    private var retreated: Bool!
     private var stabDist: CGFloat = 100.0
     private var barLength: CGFloat = 200.0
     private var player: Battler!
@@ -19,11 +21,14 @@ class BattleMainScene: SKScene {
     private var playerHealthBar, enemyHealthBar: HealthBar!
     
     override func didMoveToView(view: SKView) {
+        NSLog("move to view")
         self.backgroundColor = SKColor.init(colorLiteralRed: 0.7, green: 0.9, blue: 0.9, alpha: 1.0)
         doBattle()
     }
     
     func doBattle() {
+        isRetreating = false
+        retreated = false
         playerStat = ModelHandler.Instance.player
         enemyStat = Enemy()
         enemyStat.load(enemyID: "RAT")
@@ -39,13 +44,27 @@ class BattleMainScene: SKScene {
         enemyHealthBar = HealthBar(barLengthed: barLength, maxHp: enemyStat.mhp, currentHp: enemyStat.mhp)
         enemyHealthBar.position = CGPoint(x: CGRectGetMidX(self.frame) + self.frame.width * 0.25, y: CGRectGetMidY(self.frame) + self.frame.height * 0.4)
         
+        let retreatButton = BattleButton(texted: "撤退")
+        retreatButton.fontSize = 70
+        retreatButton.fontColor = UIColor.blackColor()
+        retreatButton.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame) - self.frame.height * 0.4)
+        retreatButton.zPosition = 60
+        retreatButton.delegate = self
+        
+        
         self.addChild(player)
         self.addChild(enemy)
         self.addChild(playerHealthBar)
         self.addChild(enemyHealthBar)
+        self.addChild(retreatButton)
+        
         player.delegate = self
         enemy.delegate = self
         nextAction()
+    }
+    
+    func setRetreating() {
+        self.isRetreating = true
     }
     
     func hit(isPlayer : Bool) {
@@ -75,19 +94,24 @@ class BattleMainScene: SKScene {
         }
     }
     
+    func retrectSucc() {
+        NSLog("REtrectSucc")
+        retreated = true
+    }
+    
     func nextAction() {
         if (player.die == true || enemy.die == true) {
             if (enemy.die == true) {
                 player.creatureStats.hp = playerHealthBar.hp
-                let label = SKLabelNode.init(text: "You WIN!")
-                label.fontSize = 80
+                let label = SKLabelNode.init(text: "击败了敌人!")
+                label.fontSize = 70
                 label.fontColor = UIColor.blackColor()
                 label.position = CGPoint(x: CGRectGetMidX(self.frame) + self.frame.width * 0.25, y: CGRectGetMidY(self.frame) - self.frame.height * 0.1)
                 label.zPosition = 30
                 self.addChild(label)
             } else {
-                let label = SKLabelNode.init(text: "You are DEAD!")
-                label.fontSize = 80
+                let label = SKLabelNode.init(text: "你的英勇长存人心!")
+                label.fontSize = 70
                 label.fontColor = UIColor.redColor()
                 label.position = CGPoint(x: CGRectGetMidX(self.frame) - self.frame.width * 0.25, y: CGRectGetMidY(self.frame) - self.frame.height * 0.1)
                 label.zPosition = 30
@@ -95,8 +119,22 @@ class BattleMainScene: SKScene {
             }
             return
         }
+        if (retreated == true) {
+            let label = SKLabelNode.init(text: "你可耻地逃跑了!")
+            label.fontSize = 70
+            label.fontColor = UIColor.redColor()
+            label.position = CGPoint(x: CGRectGetMidX(self.frame) - self.frame.width * 0.25, y: CGRectGetMidY(self.frame) - self.frame.height * 0.1)
+            label.zPosition = 30
+            self.addChild(label)
+            return
+        }
         if (player.turns < enemy.turns) {
-            player.stab(distance: stabDist)
+            if (isRetreating == true) {
+                isRetreating = false
+                player.retreat(distance: stabDist * 2, level: enemy.creatureStats.dex)
+            } else {
+                player.stab(distance: stabDist)
+            }
         } else {
             enemy.stab(distance: stabDist)
         }

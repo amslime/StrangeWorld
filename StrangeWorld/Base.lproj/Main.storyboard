@@ -154,15 +154,20 @@
                     <navigationItem key="navigationItem" id="tbb-Qe-XeZ">
                         <barButtonItem key="leftBarButtonItem" title="角色" id="sf8-Zz-llu">
                             <connections>
-                                <segue destination="cbd-kw-U2q" kind="show" id="1em-SF-8GR"/>
+                                <action selector="charButtonClicked:" destination="BV1-FR-VrT" id="ucT-jo-LdX"/>
+                                <segue destination="cbd-kw-U2q" kind="show" animates="NO" id="vRC-JQ-BUC"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="日志" id="eEZ-Kn-iid">
                             <connections>
-                                <segue destination="7Qb-65-aDQ" kind="show" id="cDL-0F-DQH"/>
+                                <segue destination="7Qb-65-aDQ" kind="show" id="GAB-Oe-6li"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="charButton" destination="sf8-Zz-llu" id="dIM-x1-23a"/>
+                        <outlet property="logButton" destination="eEZ-Kn-iid" id="NwS-jd-Gvp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>

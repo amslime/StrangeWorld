@@ -16,7 +16,9 @@ class BattleSceneViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         if let scene = BattleMainScene(fileNamed:"GameScene") {
+            NSLog("appear")
             // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = true

@@ -11,6 +11,8 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet weak var logButton: UIBarButtonItem!
+    @IBOutlet weak var charButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.translucent = false
@@ -31,7 +33,12 @@ class GameViewController: UIViewController {
             ViewItemHandler.Instance.setTownScene(scene)
         }
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        charButton.enabled = true
+    }
+    
     override func shouldAutorotate() -> Bool {
         return true
     }

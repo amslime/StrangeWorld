@@ -37,6 +37,7 @@ class GameViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         charButton.enabled = true
+        logButton.enabled = true
     }
     
     override func shouldAutorotate() -> Bool {
@@ -59,4 +60,15 @@ class GameViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    @IBAction func charButtonClicked(sender : AnyObject) {
+        charButton.enabled = false
+        ViewItemHandler.Instance.switchPlayerScene()
+    }
+    
+    @IBAction func logButtonClicked(sender : AnyObject) {
+        logButton.enabled = false
+        ViewItemHandler.Instance.switchLogScene()
+    }
+    
 }

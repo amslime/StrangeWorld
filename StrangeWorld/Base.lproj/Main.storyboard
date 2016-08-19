@@ -123,7 +123,8 @@
         <!--Tab Bar Controller-->
         <scene sceneID="5gG-UE-mp7">
             <objects>
-                <tabBarController id="7Qb-65-aDQ" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mzt-n4-0fJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController storyboardIdentifier="LOG_BOARD" id="7Qb-65-aDQ" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="p9C-to-Ho9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -134,7 +135,6 @@
                         <segue destination="5Ga-Tv-hPz" kind="relationship" relationship="viewControllers" id="GGe-ft-qs7"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mzt-n4-0fJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057" y="-453"/>
         </scene>
@@ -154,13 +154,12 @@
                     <navigationItem key="navigationItem" id="tbb-Qe-XeZ">
                         <barButtonItem key="leftBarButtonItem" title="角色" id="sf8-Zz-llu">
                             <connections>
-                                <action selector="charButtonClicked:" destination="BV1-FR-VrT" id="ucT-jo-LdX"/>
-                                <segue destination="cbd-kw-U2q" kind="show" animates="NO" id="vRC-JQ-BUC"/>
+                                <action selector="charButtonClicked:" destination="BV1-FR-VrT" id="X1t-2C-EAx"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="日志" id="eEZ-Kn-iid">
                             <connections>
-                                <segue destination="7Qb-65-aDQ" kind="show" id="GAB-Oe-6li"/>
+                                <action selector="logButtonClicked:" destination="BV1-FR-VrT" id="N4c-SB-KKQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -176,7 +175,7 @@
         <!--Char-->
         <scene sceneID="xII-5k-77I">
             <objects>
-                <viewController title="Char" id="cbd-kw-U2q" customClass="PlayerViewController" customModule="StrangeWorld" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PLAYER_BOARD" title="Char" id="cbd-kw-U2q" customClass="PlayerViewController" customModule="StrangeWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="unR-7o-ZIv"/>
                         <viewControllerLayoutGuide type="bottom" id="QYh-oH-rXJ"/>
@@ -309,7 +308,9 @@
                             <constraint firstItem="3Yc-Dr-GUb" firstAttribute="top" secondItem="Y3T-Be-e5V" secondAttribute="bottom" constant="25" id="Gze-9c-Ycj"/>
                             <constraint firstItem="fsN-Tm-sse" firstAttribute="top" secondItem="9e7-A4-c4A" secondAttribute="bottom" constant="69" id="IJP-kY-dMl"/>
                             <constraint firstItem="bXz-Nt-53O" firstAttribute="top" secondItem="9e7-A4-c4A" secondAttribute="bottom" constant="27" id="KRV-Fx-ANN"/>
-                            <constraint firstItem="sNS-ZO-dMA" firstAttribute="top" secondItem="unR-7o-ZIv" secondAttribute="bottom" constant="30" id="LsL-46-J19"/>
+                            <constraint firstItem="sNS-ZO-dMA" firstAttribute="top" secondItem="unR-7o-ZIv" secondAttribute="bottom" constant="30" id="LsL-46-J19">
+                                <variation key="heightClass=compact" constant="74"/>
+                            </constraint>
                             <constraint firstItem="cwc-rn-gKl" firstAttribute="top" secondItem="lWJ-0A-xGB" secondAttribute="bottom" constant="25" id="QtR-4t-7sX"/>
                             <constraint firstItem="D1f-P9-gqo" firstAttribute="leading" secondItem="xkb-nu-aeW" secondAttribute="leadingMargin" constant="25" id="Slv-Ew-Rld"/>
                             <constraint firstItem="q8v-6i-y32" firstAttribute="leading" secondItem="3Yc-Dr-GUb" secondAttribute="leading" id="Sm5-SD-yzz"/>
@@ -320,7 +321,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="fsN-Tm-sse" secondAttribute="trailing" constant="43" id="c4z-D5-Tj4"/>
                             <constraint firstItem="3Yc-Dr-GUb" firstAttribute="leading" secondItem="Y3T-Be-e5V" secondAttribute="leading" id="eVf-et-j6V"/>
                             <constraint firstItem="TNM-Tm-FUB" firstAttribute="centerY" secondItem="3wI-fy-K4Q" secondAttribute="centerY" id="hsy-QC-RbG"/>
-                            <constraint firstItem="3Lg-57-dhQ" firstAttribute="top" secondItem="unR-7o-ZIv" secondAttribute="bottom" constant="30" id="qIh-JE-k2t"/>
+                            <constraint firstItem="3Lg-57-dhQ" firstAttribute="top" secondItem="unR-7o-ZIv" secondAttribute="bottom" constant="30" id="qIh-JE-k2t">
+                                <variation key="heightClass=compact" constant="74"/>
+                            </constraint>
                             <constraint firstItem="Y3T-Be-e5V" firstAttribute="leading" secondItem="D1f-P9-gqo" secondAttribute="trailing" constant="29" id="r2S-oF-6SI"/>
                             <constraint firstItem="lWJ-0A-xGB" firstAttribute="top" secondItem="D1f-P9-gqo" secondAttribute="bottom" constant="25" id="rln-lG-BK3"/>
                             <constraint firstItem="D1f-P9-gqo" firstAttribute="top" secondItem="sNS-ZO-dMA" secondAttribute="bottom" constant="25" id="v5L-v7-fHt"/>

@@ -26,7 +26,9 @@ class ViewItemHandler {
     var townScene : TownScene!
     var gameViewController : GameViewController!
     var groundSceneMap : Dictionary<String, UIViewController>!
-    var charScene : PlayerViewController!
+    private var playerCharScene : UIViewController!
+    private var logScene : UIViewController!
+    
     var onChooseItem: String!
     
     func setTownScene(townScene : TownScene) {
@@ -48,6 +50,22 @@ class ViewItemHandler {
             groundSceneMap[name] = viewController
         }
         gameViewController.navigationController?.pushViewController(groundSceneMap[name]!, animated: true)
+    }
+    
+    func switchPlayerScene() {
+        if (playerCharScene == nil) {
+            NSLog("playerscenenil")
+            playerCharScene = gameViewController.storyboard?.instantiateViewControllerWithIdentifier("PLAYER_BOARD")
+        }
+        gameViewController.navigationController?.pushViewController(playerCharScene, animated: true)
+    }
+    
+    func switchLogScene() {
+        if (logScene == nil) {
+            NSLog("logscenenil")
+            logScene = gameViewController.storyboard?.instantiateViewControllerWithIdentifier("LOG_BOARD")
+        }
+        gameViewController.navigationController?.pushViewController(logScene, animated: true)
     }
 
 }

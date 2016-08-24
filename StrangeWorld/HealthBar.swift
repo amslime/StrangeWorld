@@ -13,8 +13,8 @@ class HealthBar : SKSpriteNode {
     var barLength: CGFloat!
     var mhp: Int!
     var hp: Int!
-    convenience init(barLengthed length : CGFloat, maxHp mhp : Int, currentHp hp : Int) {
-        self.init(color : SKColor.redColor(), size : CGSize(width: length * CGFloat(hp) / CGFloat(mhp), height: 30))
+    convenience init(barLengthed length : CGFloat, barHeight h : CGFloat, maxHp mhp : Int, currentHp hp : Int) {
+        self.init(color : SKColor.redColor(), size : CGSize(width: length * CGFloat(hp) / CGFloat(mhp), height: h))
         self.mhp = mhp
         self.hp = hp
         self.barLength = length

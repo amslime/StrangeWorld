@@ -20,12 +20,12 @@ class Battler: SKSpriteNode {
     var turns : Int!
     var die : Bool!
     
-    convenience init(stats: Creature, isPlayer : Bool) {
+    convenience init(stats: Creature, isPlayer : Bool, preferedWidth : CGFloat) {
         self.init(imageNamed: stats.battleImg)
         //self.userInteractionEnabled = true
         self.isPlayer = isPlayer
         self.creatureStats = stats
-        scaleFac = 1.0
+        scaleFac = preferedWidth / self.size.width
         self.setScale(scaleFac)
         self.zPosition = 30
         self.die = false

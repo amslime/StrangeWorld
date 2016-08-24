@@ -18,20 +18,20 @@ class GameViewController: UIViewController {
         self.navigationController?.navigationBar.translucent = false
         ModelHandler.Instance.resetFromView()
         ViewItemHandler.Instance.setViewController(self)
-        if let scene = TownScene(fileNamed:"GameScene") {
+        let scene = TownScene(size: self.view.frame.size)
             // Configure the view.
-            let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
+        let skView = self.view as! SKView
+        skView.showsFPS = true
+        skView.showsNodeCount = true
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
+        skView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
             
-            skView.presentScene(scene)
-            ViewItemHandler.Instance.setTownScene(scene)
-        }
+        skView.presentScene(scene)
+        ViewItemHandler.Instance.setTownScene(scene)
+
     }
     
     override func viewDidAppear(animated: Bool) {

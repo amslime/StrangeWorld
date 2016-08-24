@@ -14,6 +14,7 @@ class BattleMainScene: SKScene {
     private var retreated: Bool!
     private var stabDist: CGFloat = 100.0
     private var barLength: CGFloat = 200.0
+    private var barHeight: CGFloat = 30.0
     private var player: Battler!
     private var enemy: Battler!
     private var playerStat: Player!
@@ -32,20 +33,21 @@ class BattleMainScene: SKScene {
         playerStat = ModelHandler.Instance.player
         enemyStat = Enemy()
         enemyStat.load(enemyID: "RAT")
-        player = Battler(stats: playerStat, isPlayer: true)
-        enemy = Battler(stats: enemyStat, isPlayer: false)
+        player = Battler(stats: playerStat, isPlayer: true, preferedWidth: self.frame.width * 0.33)
+        enemy = Battler(stats: enemyStat, isPlayer: false, preferedWidth: self.frame.width * 0.33)
         stabDist = self.frame.width * 0.4
         barLength = self.frame.width * 0.4
+        barHeight = self.frame.height * 0.04
         player.position = CGPoint(x:CGRectGetMidX(self.frame) - self.frame.width * 0.25, y:CGRectGetMidY(self.frame) - self.frame.height * 0.1)
         enemy.position = CGPoint(x:CGRectGetMidX(self.frame) + self.frame.width * 0.25, y:CGRectGetMidY(self.frame) - self.frame.height * 0.1)
         
-        playerHealthBar = HealthBar(barLengthed: barLength, maxHp: playerStat.mhp, currentHp: playerStat.hp)
+        playerHealthBar = HealthBar(barLengthed: barLength, barHeight: barHeight, maxHp: playerStat.mhp, currentHp: playerStat.hp)
         playerHealthBar.position = CGPoint(x: CGRectGetMidX(self.frame) - self.frame.width * 0.25, y: CGRectGetMidY(self.frame) + self.frame.height * 0.4)
-        enemyHealthBar = HealthBar(barLengthed: barLength, maxHp: enemyStat.mhp, currentHp: enemyStat.mhp)
+        enemyHealthBar = HealthBar(barLengthed: barLength, barHeight: barHeight, maxHp: enemyStat.mhp, currentHp: enemyStat.mhp)
         enemyHealthBar.position = CGPoint(x: CGRectGetMidX(self.frame) + self.frame.width * 0.25, y: CGRectGetMidY(self.frame) + self.frame.height * 0.4)
         
         let retreatButton = BattleButton(texted: "撤退")
-        retreatButton.fontSize = 70
+        retreatButton.fontSize = 30
         retreatButton.fontColor = UIColor.blackColor()
         retreatButton.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame) - self.frame.height * 0.4)
         retreatButton.zPosition = 60
@@ -104,16 +106,16 @@ class BattleMainScene: SKScene {
             if (enemy.die == true) {
                 player.creatureStats.hp = playerHealthBar.hp
                 let label = SKLabelNode.init(text: "击败了敌人!")
-                label.fontSize = 70
+                label.fontSize = 30
                 label.fontColor = UIColor.blackColor()
                 label.position = CGPoint(x: CGRectGetMidX(self.frame) + self.frame.width * 0.25, y: CGRectGetMidY(self.frame) - self.frame.height * 0.1)
                 label.zPosition = 30
                 self.addChild(label)
             } else {
                 let label = SKLabelNode.init(text: "你的英勇长存人心!")
-                label.fontSize = 70
+                label.fontSize = 30
                 label.fontColor = UIColor.redColor()
-                label.position = CGPoint(x: CGRectGetMidX(self.frame) - self.frame.width * 0.25, y: CGRectGetMidY(self.frame) - self.frame.height * 0.1)
+                label.position = CGPoint(x: CGRectGetMidX(self.frame) - self.frame.width * 0.25, y: CGRectGetMidY(self.frame))
                 label.zPosition = 30
                 self.addChild(label)
             }
@@ -121,9 +123,9 @@ class BattleMainScene: SKScene {
         }
         if (retreated == true) {
             let label = SKLabelNode.init(text: "你可耻地逃跑了!")
-            label.fontSize = 70
+            label.fontSize = 30
             label.fontColor = UIColor.redColor()
-            label.position = CGPoint(x: CGRectGetMidX(self.frame) - self.frame.width * 0.25, y: CGRectGetMidY(self.frame) - self.frame.height * 0.1)
+            label.position = CGPoint(x: CGRectGetMidX(self.frame) - self.frame.width * 0.25, y: CGRectGetMidY(self.frame))
             label.zPosition = 30
             self.addChild(label)
             return

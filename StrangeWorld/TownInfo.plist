@@ -9,7 +9,7 @@
 			<key>X</key>
 			<real>0.8</real>
 			<key>Y</key>
-			<real>0.1</real>
+			<real>0.08</real>
 			<key>COMMENT</key>
 			<string>你可以去更远的地方探险</string>
 			<key>NAME</key>
@@ -18,7 +18,7 @@
 		<key>TAVERN</key>
 		<dict>
 			<key>Y</key>
-			<real>0.6</real>
+			<real>0.58</real>
 			<key>X</key>
 			<real>0.17</real>
 			<key>COMMENT</key>
@@ -29,7 +29,7 @@
 		<key>DUNGEON</key>
 		<dict>
 			<key>Y</key>
-			<real>0.6</real>
+			<real>0.58</real>
 			<key>X</key>
 			<real>0.87</real>
 			<key>COMMENT</key>
@@ -40,7 +40,7 @@
 		<key>PLAZA</key>
 		<dict>
 			<key>Y</key>
-			<real>0.63</real>
+			<real>0.61</real>
 			<key>X</key>
 			<real>0.66</real>
 			<key>NAME</key>
@@ -65,7 +65,7 @@
 			<key>X</key>
 			<real>0.25</real>
 			<key>Y</key>
-			<real>0.25</real>
+			<real>0.23</real>
 			<key>COMMENT</key>
 			<string>来买东西喽，价廉物美！</string>
 			<key>NAME</key>

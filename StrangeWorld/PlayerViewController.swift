@@ -19,9 +19,9 @@ class PlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var hpLabel: UILabel!
     @IBOutlet weak var dmgLabel: UILabel!
     @IBOutlet weak var itemPicker: UIPickerView!
-    
+    @IBOutlet weak var goldLabel: UILabel!
     private var itemTypeDict: NSDictionary!
-    private var itemGroupDict: NSDictionary!
+    private var itemGroupDict: NSMutableDictionary!
     private var itemType: Array = ["武器", "护甲", "杂项"]
     private var itemTypeId: Array = ["WEAPON", "ARMOR", "MISC"]
     private var itemInGroupArray: Array<String>!
@@ -35,6 +35,9 @@ class PlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         super.viewDidLoad()
         self.itemPicker.dataSource = self
         self.itemPicker.delegate = self
+        
+        commetLabel.lineBreakMode = .ByCharWrapping
+        commetLabel.numberOfLines = 0
         
         // TODO, wait for update
         player = ModelHandler.Instance.player as Player
@@ -58,6 +61,7 @@ class PlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         defLabel.text = String(player.def)
         hpLabel.textColor = UIColor.redColor()
         hpLabel.text = String(player.mhp)
+        goldLabel.text = String(player.gold)
         let minDmg = player.dmgMin
         let maxDmg = minDmg + player.dmgRange
         dmgLabel.text = String(minDmg) + "~" + String(maxDmg)
@@ -93,7 +97,7 @@ class PlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (component == 0) {
             selectedTypeId = itemTypeId[row]
-            itemGroupDict = itemTypeDict[selectedTypeId] as! NSDictionary
+            itemGroupDict = itemTypeDict[selectedTypeId] as! NSMutableDictionary
             itemInGroupArray = itemGroupDict.allKeys as! Array<String>
             self.itemPicker.reloadComponent(1)
         } else if (component == 1) {
@@ -117,6 +121,7 @@ class PlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if (comment == nil) {
             comment = "未知装备"
         }
+        comment?.appendContentsOf("(剩余:"+String(itemGroupDict[onChooseId] as! Int)+")")
         
         if (selectedTypeId != "MISC") {
             let eqid = self.equippingDict[selectedTypeId] as? String
@@ -151,6 +156,45 @@ class PlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
         else if (useButton.currentTitle == GlobalName.USE) {
             NSLog("use")
+        }
+        else if (useButton.currentTitle == GlobalName.YES) {
+            NSLog("Selling")
+            let remain = (itemGroupDict[onChooseId] as! Int) - 1
+            player.receiveGold((onChooseItem["VALUE"] as! Int) / 4)
+            if (remain > 0) {
+                itemGroupDict.setValue(remain, forKey: onChooseId)
+            } else {
+                itemGroupDict.removeObjectForKey(onChooseId)
+            }
+            itemInGroupArray = itemGroupDict.allKeys as! Array<String>
+            self.itemPicker.reloadComponent(1)
+            onChooseItem = updateInfo(didSelectRow: itemPicker.selectedRowInComponent(1))
+            goldLabel.text = String(player.gold)
+        }
+    }
+    
+    @IBAction func sellButtonClicked() {
+        if (sellButton.currentTitle == GlobalName.SELL) {
+            sellButton.setTitle(GlobalName.CANCEL, forState: .Normal)
+            let remain = (itemGroupDict[onChooseId] as! Int)
+            let val = onChooseItem["VALUE"] as? Int
+            if (val == nil || val == 0) {
+                useButton.setTitle(GlobalName.YES, forState: .Normal)
+                commetLabel.text = "该物品不可出售"
+                useButton.enabled = false
+            } else if (remain <= 1 && useButton.titleLabel?.text == GlobalName.UNEQUIP){
+                commetLabel.text = "仅剩的一件物品装备中"
+                useButton.setTitle(GlobalName.YES, forState: .Normal)
+                useButton.enabled = false
+            } else {
+                commetLabel.text = "出售将获得"+String(val!/4)+GlobalName.MONEY_NAME
+                useButton.setTitle(GlobalName.YES, forState: .Normal)
+                useButton.enabled = true
+            }
+        } else if (sellButton.currentTitle == GlobalName.CANCEL) {
+            self.itemPicker.reloadComponent(1)
+            onChooseItem = updateInfo(didSelectRow: itemPicker.selectedRowInComponent(1))
+            useButton.enabled = true
         }
     }
 }

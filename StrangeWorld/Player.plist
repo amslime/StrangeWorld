@@ -2,12 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ENEMYS</key>
+	<dict/>
+	<key>ACTIVE_QUEST</key>
+	<dict/>
+	<key>ACHIEVE_KEY</key>
+	<dict/>
+	<key>GOLD</key>
+	<integer>100</integer>
 	<key>PROPERTY</key>
 	<dict>
 		<key>MISC</key>
 		<dict/>
-		<key>GOLD</key>
-		<integer>100</integer>
 		<key>EQUIPPING</key>
 		<dict>
 			<key>ARMOR</key>
@@ -18,7 +24,7 @@
 		<key>ARMOR</key>
 		<dict>
 			<key>SHIRT</key>
-			<integer>1</integer>
+			<integer>3</integer>
 			<key>RAG</key>
 			<integer>1</integer>
 		</dict>

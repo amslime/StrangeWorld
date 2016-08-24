@@ -14,28 +14,28 @@ class TownScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        let sceneWidth = self.frame.width * 0.8
-        let navbarHeight = ViewItemHandler.Instance.gameViewController.navigationController?.navigationBar.frame.height
-        let sceneHeight = self.frame.height - navbarHeight!
+        let navHeight = ViewItemHandler.Instance.gameViewController.navigationController?.navigationBar.frame.height
+        let sceneHeight = self.frame.height - navHeight!
         let backgroundNode = SKSpriteNode(imageNamed: "Town00.jpg")
-        backgroundNode.size.height = sceneHeight
-        backgroundNode.size.width = sceneWidth
-        NSLog("%f", navbarHeight!)
+        backgroundNode.size.height = self.frame.height
+        backgroundNode.size.width = self.frame.width * 0.8
         NSLog("%f", self.frame.size.width)
         NSLog("%f", view.frame.size.width)
-        backgroundNode.position = CGPoint(x:CGRectGetMidX(self.frame) * 0.8, y:CGRectGetMidY(self.frame))
+        NSLog("%f", self.frame.size.height)
+        backgroundNode.anchorPoint = CGPoint.zero
+        backgroundNode.position = CGPoint.zero
         self.backgroundColor = SKColor.blackColor()
         self.addChild(backgroundNode)
         
         if (titleText == nil) {
-            titleText = UILabel(frame: CGRect(x: view.frame.width * 0.8, y: 0, width: view.frame.width * 0.2, height: view.frame.height * 0.1))
+            titleText = UILabel(frame: CGRect(x: self.frame.width * 0.8, y: 0, width: self.frame.width * 0.2, height: sceneHeight * 0.1))
             titleText.backgroundColor = UIColor.brownColor()
             titleText.textColor = UIColor.cyanColor()
             titleText.textAlignment = .Center
             view.addSubview(titleText)
         }
         if (commentText == nil) {
-            commentText = UILabel(frame: CGRect(x: view.frame.width * 0.8, y: view.frame.height * 0.1, width: view.frame.width * 0.2, height: view.frame.height * 0.9 - navbarHeight!))
+            commentText = UILabel(frame: CGRect(x: view.frame.width * 0.8, y: sceneHeight * 0.1, width: self.frame.width * 0.2, height: sceneHeight * 0.9))
             commentText.lineBreakMode = .ByCharWrapping
             commentText.numberOfLines = 0
             commentText.textColor = UIColor.whiteColor()

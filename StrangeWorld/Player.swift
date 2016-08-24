@@ -9,7 +9,7 @@
 import Foundation
 
 class Player: Creature {
-    var baseStr, baseDex, baseDef, baseMhp: Int!
+    var baseStr, baseDex, baseDef, baseMhp, gold: Int!
     var dict: NSMutableDictionary!
     
     func load(fromDictionary dict : NSMutableDictionary) {
@@ -25,13 +25,13 @@ class Player: Creature {
         self.baseDex = dict["DEX"] as! Int
         self.baseDef = dict["DEF"] as! Int
         self.baseMhp = dict["HP"] as! Int
+        self.gold = dict[GlobalName.MONEY_NAME] as! Int
         self.str = self.baseStr
         self.dex = self.baseDex
         self.def = self.baseDef
         self.mhp = self.baseMhp
         self.dmgMin = self.baseStr
         self.dmgRange = self.baseStr
-        NSLog("mhp%d", self.mhp)
         let eqdict = (dict["PROPERTY"] as! NSDictionary)["EQUIPPING"] as! NSDictionary
         let itemDict = ModelHandler.Instance.itemData.allDict
         for typeName: String in (eqdict.allKeys as! [String]) {
@@ -49,6 +49,11 @@ class Player: Creature {
     
     func refresh() {
         self.hp = self.mhp
+    }
+    
+    func receiveGold(gold : Int) {
+        self.gold = self.gold + gold
+        dict.setValue(self.gold, forKey: GlobalName.MONEY_NAME)
     }
     
     private func addItemEffect(item: NSDictionary) {
